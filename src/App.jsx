@@ -41,7 +41,7 @@ function App() {
     <>
       {/* Navbar section  */}
       <nav className="fixed top-0 left-0 right-0 z-50 w-full bg-green-950 text-white px-12 py-4 flex justify-between drop-shadow-xl">
-        <label>Logo</label>
+        <label className='hidden lg:block'>Logo</label>
         <ul className="flex gap-6">
           <li className="cursor-pointer hover:text-yellow-400 transition-colors" onClick={() => scrollToSection('hero')}>Home</li>
           <li className="cursor-pointer hover:text-yellow-400 transition-colors" onClick={() => scrollToSection('features')}>Features</li>
@@ -51,14 +51,14 @@ function App() {
       </nav>
 
       {/* Hero section  */}
-      <section id="hero" className="grid grid-cols-1 md:grid-cols-2 bg-green-950 text-white pt-20">
+      <section id="hero" className="grid grid-cols-1 sm:grid-cols-2 bg-green-950 text-white pt-20 overflow-hidden" >
         <div id="text" className="flex flex-col items-left p-12 h-screen justify-center gap-6">
           <h1 className="text-6xl font-medium">Make the World Green</h1>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero tenetur et, temporibus impedit maxime voluptatum odit asperiores corporis ab facilis nesciunt reiciendis blanditiis libero?</p>
           <button className="text-black bg-gradient-to-bl via-green-400 to-white w-fit px-4 py-2 border-none rounded-lg">Learn more</button>
         </div>
-        <div id="image" className="w-[250px] h-[250px] md:w-[600px] md:h-[600px] mx-auto my-12">
-          <img src={heropic} alt="" />
+        <div id="image" className="w-[250px] h-[250px] md:w-[400px] md:h-[400px] lg:w-[600px] lg:h-[600px] mx-auto my-12">
+          <img src={heropic} className='object-cover w-full h-full' alt="" />
         </div>
       </section>
 
@@ -111,7 +111,7 @@ function App() {
 
         {/*First Image and text */}
         <div className='grid grid-cols-1 md:grid-cols-2 gap-5 mt-10 p-12 text-white'>
-          <div id='image' className='w-[250px] h-[250px] md:w-[400px] md:h-[400px] mt-6 mx-auto'>
+          <div id='image' className='w-[250px] text-center h-[250px] md:w-[400px] md:h-[400px] mt-6 mx-auto'>
             <img src={plant1} alt="" />
           </div>
           <div id='text-side' className='flex flex-col justify-center gap-6 mt-10'>
@@ -127,7 +127,7 @@ function App() {
             <p className='font-sans text-justify'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus fuga necessitatibus aspernatur ad, nihil inventore. Sunt assumenda vero, repudiandae natus aliquid aliquam. Ex ab sed velit alias quisquam magni illo dolor harum labore voluptate libero reprehenderit sunt, fugiat voluptates nesciunt, nostrum possimus? Maxime placeat asperiores exercitationem omnis at voluptas est vitae repudiandae, incidunt dolore, veritatis nisi molestias enim delectus commodi!</p>
           </div>
 
-          <div id='image' className='w-[250px] h-[250px] md:w-[400px] md:h-[400px] mt-6 mx-auto'>
+          <div id='image' className='w-[250px] text-center h-[250px] md:w-[400px] md:h-[400px] mt-6 mx-auto'>
             <img src={plant2} alt="" />
           </div>
         </div>
@@ -227,59 +227,68 @@ function App() {
         </div>
       </section>
 
-      <footer className='min-h-[200px] bg-white text-black'>
+      <footer className='bg-white text-black'>
         {/* Social Media Links */}
-        <div className="container flex items-center justify-center py-8 px-8">
-          {/* Left Line */}
-          <div className="flex-1 border-t border-2 border-green-600  w-[300px]"></div>
-
-          {/* Icons */}
-          <div className="flex space-x-6 px-6 text-green-900">
-            <a target='_blank' href="https://www.facebook.com/areeb.hanif.3"><Facebook className="w-5 h-5 cursor-pointer hover:text-blue-400 transition-colors" /></a>
-            <a target='_blank' href="https://github.com/AreebHanif"><Github className="w-5 h-5 cursor-pointer hover:text-black transition-colors" /></a>
-            <a target='_blank' href="https://www.instagram.com/areeb.official1/"><Instagram className="w-5 h-5 cursor-pointer hover:text-purple-400 transition-colors" /></a>
-            <a target='_blank' href="https://www.linkedin.com/in/areebhanif"><Linkedin className="w-5 h-5 cursor-pointer hover:text-blue-400 transition-colors" /></a>
+        <div className="container flex items-center justify-center py-12 px-8">
+          <div className="flex-1 border-t-2 border-green-600"></div>
+          <div className="flex space-x-8 px-8 text-green-900">
+            <a target='_blank' rel="noopener noreferrer" href="https://www.facebook.com/areeb.hanif.3" className="hover:scale-110 transition-transform">
+              <Facebook className="w-6 h-6 hover:text-blue-600" />
+            </a>
+            <a target='_blank' rel="noopener noreferrer" href="https://github.com/AreebHanif" className="hover:scale-110 transition-transform">
+              <Github className="w-6 h-6 hover:text-gray-800" />
+            </a>
+            <a target='_blank' rel="noopener noreferrer" href="https://www.instagram.com/areeb.official1/" className="hover:scale-110 transition-transform">
+              <Instagram className="w-6 h-6 hover:text-pink-600" />
+            </a>
+            <a target='_blank' rel="noopener noreferrer" href="https://www.linkedin.com/in/areebhanif" className="hover:scale-110 transition-transform">
+              <Linkedin className="w-6 h-6 hover:text-blue-700" />
+            </a>
           </div>
-
-          {/* Right Line */}
-          <div className="flex-1 border-t border-2 border-green-600"></div>
-        </div>
-        {/* Footer Actions */}
-        <div className='flex justify-evenly items-center mb-[50px] font-serif'>
-          <div id="logo" className='h-[150px] w-[150px]'>
-            <img src="/vite.svg" className='h-full' alt="" />
-          </div>
-          <div id="quick-links">
-            <h1 className='text-4xl text-green-900'>Quick Links</h1>
-            <ul className='flex flex-col items-start mt-5 text-green-900'>
-              <li>Plants</li>
-              <li>Flowers</li>
-              <li>Gardens</li>
-              <li>Seeds</li>
-            </ul>
-          </div>
-          <div id="popular-services">
-            <h1 className='text-4xl text-green-900'>Popular Services</h1>
-            <ul className='flex flex-col items-start mt-5 text-green-900'>
-              <li>Tree Planting</li>
-              <li>Grass Cutting</li>
-              <li>Weeds Control</li>
-              <li>Project</li>
-            </ul>
-          </div>
-          <div id="contact-us">
-            <h1 className='text-4xl text-green-900'>Contact Us</h1>
-            <ul className='flex flex-col items-start mt-5 text-green-900'>
-              <li>0316-8070335</li>
-              <li>areebhaneef3@gmail.com</li>
-              <li>Gujranwala, Pakistan</li>
-              <li>Seeds</li>
-            </ul>
-          </div>
+          <div className="flex-1 border-t-2 border-green-600"></div>
         </div>
 
-        <div className='block text-center text-gray-500 text-sm py-4 border-t'>
-          Copyright <Copyright className='inline h-4.5' /> 2025 Areeb Hanif. All rights reserved.
+        {/* Footer Content */}
+        <div className='container mx-auto px-6 py-8'>
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
+            <div id="logo" className='flex items-center justify-center md:justify-start'>
+              <img src="/vite.svg" className='h-24 w-auto' alt="Logo" />
+            </div>
+
+            <div id="quick-links">
+              <h3 className='text-2xl font-semibold text-green-900 mb-4'>Quick Links</h3>
+              <ul className='space-y-2'>
+                {['Plants', 'Flowers', 'Gardens', 'Seeds'].map(item => (
+                  <li key={item} className='hover:text-green-600 cursor-pointer transition-colors'>{item}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div id="popular-services">
+              <h3 className='text-2xl font-semibold text-green-900 mb-4'>Popular Services</h3>
+              <ul className='space-y-2'>
+                {['Tree Planting', 'Grass Cutting', 'Weeds Control', 'Project'].map(item => (
+                  <li key={item} className='hover:text-green-600 cursor-pointer transition-colors'>{item}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div id="contact-us">
+              <h3 className='text-2xl font-semibold text-green-900 mb-4'>Contact Us</h3>
+              <ul className='space-y-2'>
+                <li className='flex items-center gap-2'>0316-8070335</li>
+                <li className='flex items-center gap-2'>areebhaneef3@gmail.com</li>
+                <li className='flex items-center gap-2'>Gujranwala, Pakistan</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* Copyright */}
+        <div className='text-center text-gray-600 py-4 border-t border-gray-200'>
+          <p className='flex items-center justify-center gap-1'>
+            Copyright <Copyright className='h-4 w-4' /> 2025 Areeb Hanif. All rights reserved.
+          </p>
         </div>
       </footer>
     </>
