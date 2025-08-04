@@ -13,7 +13,7 @@ function App() {
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      const navbarHeight = 80; // Approximate height of the navbar
+      const navbarHeight = 40; // Approximate height of the navbar
       const elementPosition = element.offsetTop - navbarHeight;
       window.scrollTo({
         top: elementPosition,
