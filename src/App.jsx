@@ -1,4 +1,5 @@
-import { Copyright, Facebook, Github, Instagram, Linkedin, ShoppingCart, Star, Truck, Twitter } from 'lucide-react'
+import { Copyright, Facebook, Github, Instagram, Linkedin, ShoppingCart, Star, Truck } from 'lucide-react'
+import { useEffect } from 'react'
 import heropic from './assets/img/home.png'
 import leaf3 from './assets/img/leaf-3.png'
 import plant1 from './assets/img/plant-1.png'
@@ -10,10 +11,24 @@ import cart4 from './assets/img/cart-4.png'
 
 function App() {
 
+  // Lazy load images with loading="lazy" attribute
+  const optimizeImages = () => {
+    const images = document.querySelectorAll('img');
+    images.forEach(img => {
+      img.loading = 'lazy';
+      img.decoding = 'async';
+    });
+  };
+
+  // Add useEffect to optimize images on component mount
+  useEffect(() => {
+    optimizeImages();
+  }, []);
+
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      const navbarHeight = 40; // Approximate height of the navbar
+      const navbarHeight = 40;
       const elementPosition = element.offsetTop - navbarHeight;
       window.scrollTo({
         top: elementPosition,
